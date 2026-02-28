@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EmergencyID</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+.grid-bg {
+  background-color: #0b1c2d;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(255,94,77,0.6);
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 25px rgba(255,94,77,0.6);
+}
+
+.card {
+  background: linear-gradient(145deg,#11293e,#0d2234);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+</style>
+</head>
+
+<body class="grid-bg text-white min-h-screen">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed w-full z-50 backdrop-blur-md bg-[#0b1c2d]/80 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="bg-[#ff5e4d] p-2 rounded-lg">❤️</div>
+      <h1 class="text-lg font-bold">
+        Emergency<span class="text-[#ff5e4d]">ID</span>
+      </h1>
+    </div>
+
+    <div class="hidden md:flex items-center gap-8 text-gray-300">
+      <a href="#" onclick="showHome()" class="hover:text-white transition">Home</a>
+      <a href="#" onclick="showProfile()" class="hover:text-white transition">Create Profile</a>
+      <a href="#" class="hover:text-white transition">My Profiles</a>
+      <button class="bg-[#ff5e4d] hover:bg-[#ff3e2d] px-5 py-2 rounded-full font-semibold transition glow-btn">
+        Get Your ID
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO SECTION ================= -->
+<section id="homeSection" class="pt-40 pb-24 max-w-7xl mx-auto px-6">
+  <div class="flex items-start gap-6">
+    <div class="w-1 bg-[#ff5e4d] h-72 hidden md:block"></div>
+    <div>
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+        <span class="text-gray-200">Your medical info,</span><br>
+        <span class="text-gray-200">one scan away</span><br>
+        <span class="text-gray-200">from</span><br>
+        <span class="text-[#ff5e4d] glow-text">saving your life.</span>
+      </h1>
+
+      <p class="mt-8 text-gray-400 max-w-xl text-lg leading-relaxed">
+        EmergencyID links a simple QR code to your critical medical information.
+        In an emergency, a doctor scans it instantly.
+      </p>
+
+      <div class="mt-10 flex gap-4">
+        <button onclick="showProfile()" class="bg-[#ff5e4d] px-8 py-4 rounded-xl text-lg font-semibold glow-btn">
+          Create Your Emergency ID →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROFILE SECTION ================= -->
+<section id="profileSection" class="hidden pt-40 pb-20 max-w-4xl mx-auto px-6">
+
+  <div class="mb-10">
+    <p class="text-sm tracking-widest text-gray-400">PREPAREDNESS</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold mt-3">
+      Create your <span class="text-[#ff5e4d]">Emergency Profile</span>
+    </h2>
+    <p class="mt-4 text-gray-400">
+      Tell us what first responders need to know. You control what is visible.
+    </p>
+  </div>
+
+  <!-- PERSONAL INFO -->
+  <div class="card rounded-2xl p-8 mb-8">
+    <h3 class="text-xl font-semibold mb-6">👤 Personal Information</h3>
+
+    <div class="space-y-6">
+      <div>
+        <label class="text-sm text-gray-400">Full Name</label>
+        <input class="w-full mt-2 p-4 rounded-xl bg-[#0b1c2d] border border-gray-700 focus:outline-none" placeholder="e.g. John Doe">
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="text-sm text-gray-400">Date of Birth</label>
+          <input type="date" class="w-full mt-2 p-4 rounded-xl bg-[#0b1c2d] border border-gray-700 focus:outline-none">
+        </div>
+        <div>
+          <label class="text-sm text-gray-400">Blood Type</label>
+          <select class="w-full mt-2 p-4 rounded-xl bg-[#0b1c2d] border border-gray-700 focus:outline-none">
+            <option>Select blood type</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>O+</option><option>O-</option>
+            <option>AB+</option><option>AB-</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDICAL INFO -->
+  <div class="card rounded-2xl p-8 mb-8">
+    <h3 class="text-xl font-semibold mb-6">🩺 Medical Information</h3>
+
+    <div class="space-y-6">
+      <div>
+        <label class="text-sm text-gray-400">Allergies</label>
+        <input class="w-full mt-2 p-4 rounded-xl bg-[#0b1c2d] border border-gray-700 focus:outline-none" placeholder="e.g. Penicillin">
+      </div>
+
+      <div>
+        <label class="text-sm text-gray-400">Chronic Conditions</label>
+        <input class="w-full mt-2 p-4 rounded-xl bg-[#0b1c2d] border border-gray-700 focus:outline-none" placeholder="e.g. Diabetes">
+      </div>
+
+      <div>
+        <label class="text-sm text-gray-400">Current Medications</label>
+        <input class="w-full mt-2 p-4 rounded-xl bg-[#0b1c2d] border border-gray-700 focus:outline-none" placeholder="e.g. Metformin 500mg">
+      </div>
+
+      <div>
+        <label class="text-sm text-gray-400">Additional Notes</label>
+        <textarea rows="4" class="w-full mt-2 p-4 rounded-xl bg-[#0b1c2d] border border-gray-700 focus:outline-none"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ...existing code... -->
+<!-- INSERT THIS BLOCK after the closing tag of your Medical Information card -->
+
+<!-- ========== EMERGENCY CONTACTS SECTION ========== -->
+<div class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-6 mb-6 shadow-xl">
+  <!-- Section Header -->
+  <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center gap-3">
+      <div class="bg-red-500 bg-opacity-20 p-2 rounded-lg">
+        <!-- Phone Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 15.72V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+        </svg>
+      </div>
+      <h2 class="text-white text-lg font-semibold tracking-wide">Emergency Contacts</h2>
+    </div>
+    <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs font-semibold px-3 py-1 rounded-full border border-red-500 border-opacity-30">
+      1 added
+    </span>
+  </div>
+
+  <!-- Contact Card 1 -->
+  <div class="bg-gray-800 bg-opacity-60 border border-gray-600 rounded-xl p-5 mb-4">
+    <!-- Contact Card Header -->
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-gray-400 text-xs font-bold tracking-widest uppercase">Contact 1</span>
+      <button type="button" class="text-gray-500 hover:text-red-400 transition-colors duration-200 p-1 rounded-lg hover:bg-red-500 hover:bg-opacity-10">
+        <!-- Trash Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7h6m2 0H7m2 0V5a1 1 0 011-1h4a1 1 0 011 1v2" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Name Field -->
+    <div class="mb-4">
+      <label class="block text-gray-300 text-sm font-medium mb-2">
+        Name <span class="text-red-400">*</span>
+      </label>
+      <input
+        type="text"
+        placeholder="Contact's full name"
+        class="w-full bg-gray-900 bg-opacity-80 border border-gray-600 text-white placeholder-gray-500 text-sm rounded-lg px-4 py-3 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors duration-200"
+      />
+    </div>
+
+    <!-- Phone Field -->
+    <div class="mb-4">
+      <label class="block text-gray-300 text-sm font-medium mb-2">
+        Phone <span class="text-red-400">*</span>
+      </label>
+      <div class="flex gap-2">
+        <!-- Country Code Selector -->
+        <div class="relative">
+          <select class="appearance-none bg-gray-900 bg-opacity-80 border border-gray-600 text-white text-sm rounded-lg px-3 py-3 pr-8 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors duration-200 cursor-pointer min-w-[90px]">
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+91">🇮🇳 +91</option>
+            <option value="+61">🇦🇺 +61</option>
+            <option value="+49">🇩🇪 +49</option>
+            <option value="+33">🇫🇷 +33</option>
+            <option value="+86">🇨🇳 +86</option>
+            <option value="+81">🇯🇵 +81</option>
+            <option value="+55">🇧🇷 +55</option>
+            <option value="+52">🇲🇽 +52</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+            <svg class="h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+        <!-- Phone Number Input -->
+        <input
+          type="tel"
+          placeholder="Phone number"
+          class="flex-1 bg-gray-900 bg-opacity-80 border border-gray-600 text-white placeholder-gray-500 text-sm rounded-lg px-4 py-3 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors duration-200"
+        />
+      </div>
+    </div>
+
+    <!-- Relationship Field -->
+    <div>
+      <label class="block text-gray-300 text-sm font-medium mb-2">Relationship</label>
+      <input
+        type="text"
+        placeholder="e.g. Spouse, Parent, Friend"
+        class="w-full bg-gray-900 bg-opacity-80 border border-gray-600 text-white placeholder-gray-500 text-sm rounded-lg px-4 py-3 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors duration-200"
+      />
+    </div>
+  </div>
+
+  <!-- Add Emergency Contact Button -->
+  <button
+    type="button"
+    class="w-full flex items-center justify-center gap-2 border border-dashed border-gray-600 hover:border-red-500 text-gray-400 hover:text-red-400 bg-transparent hover:bg-red-500 hover:bg-opacity-5 text-sm font-medium py-3 px-4 rounded-xl transition-all duration-200"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+    </svg>
+    Add Emergency Contact
+  </button>
+</div>
+
+
+<!-- ========== PRIVACY CONTROLS SECTION ========== -->
+<div class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl mb-6 shadow-xl overflow-hidden">
+  <!-- Collapsible Header -->
+  <button
+    type="button"
+    onclick="
+      const body = document.getElementById('privacy-body');
+      const arrow = document.getElementById('privacy-arrow');
+      const isOpen = body.classList.contains('block');
+      body.classList.toggle('hidden', isOpen);
+      body.classList.toggle('block', !isOpen);
+      arrow.classList.toggle('rotate-180', !isOpen);
+    "
+    class="w-full flex items-center justify-between p-6 text-left focus:outline-none group"
+  >
+    <div class="flex items-center gap-3">
+      <div class="bg-red-500 bg-opacity-20 p-2 rounded-lg">
+        <!-- Shield / Lock Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <div>
+        <h2 class="text-white text-lg font-semibold tracking-wide">Privacy Controls</h2>
+      </div>
+    </div>
+    <svg
+      id="privacy-arrow"
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5 text-gray-400 transition-transform duration-300 rotate-180"
+      fill="none" viewBox="0 0 24 24" stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <!-- Collapsible Body -->
+  <div id="privacy-body" class="block px-6 pb-6">
+    <!-- Description -->
+    <p class="text-gray-400 text-sm leading-relaxed mb-5 border-t border-gray-700 pt-4">
+      Control what information is visible on your public emergency page. Toggle off any information you prefer to keep private.
+    </p>
+
+    <!-- Toggle Rows -->
+    <div class="space-y-1">
+
+      <!-- Blood Type — ON -->
+      <div class="flex items-center justify-between py-3 border-b border-gray-700 border-opacity-50">
+        <span class="text-gray-200 text-sm font-medium">Blood Type</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer" />
+          <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Date of Birth — OFF -->
+      <div class="flex items-center justify-between py-3 border-b border-gray-700 border-opacity-50">
+        <span class="text-gray-200 text-sm font-medium">Date of Birth</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer" />
+          <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Allergies — ON -->
+      <div class="flex items-center justify-between py-3 border-b border-gray-700 border-opacity-50">
+        <span class="text-gray-200 text-sm font-medium">Allergies</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer" />
+          <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Conditions — ON -->
+      <div class="flex items-center justify-between py-3 border-b border-gray-700 border-opacity-50">
+        <span class="text-gray-200 text-sm font-medium">Conditions</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer" />
+          <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Medications — ON -->
+      <div class="flex items-center justify-between py-3 border-b border-gray-700 border-opacity-50">
+        <span class="text-gray-200 text-sm font-medium">Medications</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer" />
+          <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Organ Donor Status — ON -->
+      <div class="flex items-center justify-between py-3 border-b border-gray-700 border-opacity-50">
+        <span class="text-gray-200 text-sm font-medium">Organ Donor Status</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer" />
+          <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Medical Notes — ON -->
+      <div class="flex items-center justify-between py-3 border-b border-gray-700 border-opacity-50">
+        <span class="text-gray-200 text-sm font-medium">Medical Notes</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer" />
+          <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Emergency Contacts — ON -->
+      <div class="flex items-center justify-between py-3">
+        <span class="text-gray-200 text-sm font-medium">Emergency Contacts</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="sr-only peer" />
+          <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:bg-red-500 peer-focus:outline-none transition-colors duration-200 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ========== GENERATE MY EMERGENCY ID BUTTON ========== -->
+<div class="mb-8">
+  <button
+    type="button"
+    class="w-full bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 active:from-red-700 active:to-orange-600 text-white font-bold text-base tracking-wide py-4 px-6 rounded-2xl shadow-lg shadow-red-900 shadow-opacity-40 transition-all duration-200 flex items-center justify-center gap-3 group"
+  >
+    <!-- ID Card Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:scale-110 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c0 1.306.835 2.418 2 2.83V19h-2v1h6v-1h-2v-1.17A3.001 3.001 0 0015 14" />
+    </svg>
+    Generate My Emergency ID
+  </button>
+</div>
+
+
+
+  <!-- SAVE BUTTON -->
+  <div class="text-center">
+    <button class="bg-[#ff5e4d] px-10 py-4 rounded-xl text-lg font-semibold glow-btn">
+      Save Emergency Profile
+    </button>
+  </div>
+
+</section>
+
+</script>
+
+</body>
+</html>

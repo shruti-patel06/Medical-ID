@@ -1,0 +1,5 @@
+node_modules/
+emergencyid.db
+*.db
+npm-debug.log*
+.env
